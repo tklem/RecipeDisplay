@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+
 const Schema = mongoose.Schema;
 
 const ingredientSchema = new Schema({
@@ -8,10 +9,10 @@ const ingredientSchema = new Schema({
   food: { type: 'String', required: true },
 });
 
+
 const recipeSchema = new Schema({
   name: { type: 'String', required: true },
   ingredients: [ingredientSchema]
 });
 
-export mongoose.model('Ingredient', postSchema);
-export mongoose.model('Recipe', recipeSchema);
+export default mongoose.model('Recipe', recipeSchema);

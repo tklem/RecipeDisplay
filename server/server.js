@@ -37,6 +37,7 @@ import { fetchComponentData } from './util/fetchData';
 import posts from './routes/post.routes';
 import dummyData from './dummyData';
 import serverConfig from './config';
+import * as Models from './models/recipe';
 
 // Set native promises as mongoose promise
 mongoose.Promise = global.Promise;
@@ -48,7 +49,6 @@ mongoose.connect(serverConfig.mongoURL, (error) => {
     throw error;
   }
 
-  // feed some dummy data in DB.
   dummyData();
 });
 
@@ -79,8 +79,6 @@ const renderFullPage = (html, initialState) => {
 
         ${process.env.NODE_ENV === 'production' ? `<link rel='stylesheet' href='${assetsManifest['/app.css']}' />` : ''}
         <link href='https://fonts.googleapis.com/css?family=Lato:400,300,700' rel='stylesheet' type='text/css'/>
-        <link rel="shortcut icon" href="http://res.cloudinary.com/hashnode/image/upload/v1455629445/static_imgs/mern/mern-favicon-circle-fill.png" type="image/png" />
-      </head>
       <body>
         <div id="root">${html}</div>
         <script>
@@ -125,9 +123,7 @@ app.use((req, res, next) => {
       .then(() => {
         const initialView = renderToString(
           <Provider store={store}>
-            <IntlWrapper>
-              <RouterContext {...renderProps} />
-            </IntlWrapper>
+            <RouterContext {...renderProps} />
           </Provider>
         );
         const finalState = store.getState();
@@ -147,16 +143,21 @@ app.listen(serverConfig.port, (error) => {
     console.log(`MERN is running on port: ${serverConfig.port}! Build something amazing!`); // eslint-disable-line
   }
 });
-
-const updater = io
-  .of('/update')
+/*
+const alexa = io
+  .of('/alexa')
   .on('connection', (socket) => {
     console.log('Connected to Alexa');
 
     socket.on('ingredients', (recipe) => {
+      const in_recipe = new Models.recipe(recipe);
+      in_recipe.save( (err) => {
+        if (err) console.log("Oops");
+      });
+
       recipe['ingredients'].forEach( (ingredient) =>
-        )
+        Models.ingredient.find({food: ingredient['food']})
     })
   })
-
+*/
 export default app;
