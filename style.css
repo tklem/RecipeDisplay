@@ -1,0 +1,66 @@
+div.alexa{
+  width: 100%;
+  position: absolute;
+
+
+}
+
+div.answer{
+  background-color: #fff56d;
+  position: absolute;
+  vertical-align: right;
+}
+
+div.left{
+  vertical-align: left;
+}
+
+
+
+h1.white-title{
+  font-family: 'Convergence', sans-serif;
+/*  font: Arial, Helvetica, sans-serif;*/
+  font-size: 80px;
+  color: #ffffcc;
+
+}
+
+h4.black-alexa{
+  font-family: 'Raleway', sans-serif;
+/*  font: Arial, Helvetica, sans-serif;*/
+  font-size: 23px;
+  font-weight: bold;
+  color: #000000;
+}
+
+h4.black-answer{
+  font-family: 'Raleway', sans-serif;
+/*  font: Arial, Helvetica, sans-serif;*/
+  font-size: 15px;
+  font-weight: bold;
+  color: #000000;
+}
+
+
+
+.left{
+  left: 0px;
+}
+
+html{
+
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  height: 100%;
+}
+
+body{
+  height: 100%;
+}
+
+header{
+  background-image: url("kitchen_image.jpg");
+  height: 100%;
+  background-size: cover;
+}
