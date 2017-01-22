@@ -13,6 +13,8 @@ import webpackHotMiddleware from 'webpack-hot-middleware';
 
 // Initialize the Express App
 const app = new Express();
+const server = require('express').createServer();
+const io = require('socket.io')(server);
 
 // Run Webpack dev server in development mode
 if (process.env.NODE_ENV === 'development') {
@@ -145,5 +147,16 @@ app.listen(serverConfig.port, (error) => {
     console.log(`MERN is running on port: ${serverConfig.port}! Build something amazing!`); // eslint-disable-line
   }
 });
+
+const updater = io
+  .of('/update')
+  .on('connection', (socket) => {
+    console.log('Connected to Alexa');
+
+    socket.on('ingredients', (recipe) => {
+      recipe['ingredients'].forEach( (ingredient) =>
+        )
+    })
+  })
 
 export default app;

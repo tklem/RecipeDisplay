@@ -78,3 +78,5 @@ export function deletePost(req, res) {
     });
   });
 }
+
+import * as Models from '../models/recipe';
