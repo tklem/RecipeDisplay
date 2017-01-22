@@ -27,7 +27,6 @@
 
         <!--Local CSS Files -->
         <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="css/style.css">
         <!--Local JS Files -->
         <script type="text/javascript" src="js/app.js"></script>
         <!--Custom font inclusion-->
@@ -45,7 +44,7 @@
 <script src="https://cdn.rawgit.com/michalsnik/aos/2.1.1/dist/aos.js"></script>
 <script>
     AOS.init();
-  </script>
+</script>
 
 
 
